@@ -5,7 +5,7 @@ from collections import deque
 def insertAndRotate(a,array = deque):
     array.appendleft(a)
     array.rotate()
-    return(array.popleft())
+    array.popleft()
     #print(array)
 
 t_start=0#s
@@ -40,9 +40,10 @@ for f in f_array:
     
     #h_kp1 = T_t+dT_dt*theta_d
     #forsinkelse_que.append(T_t+dT_dt*theta_d)
+    T_array[f] = forsinkelse_que[9]
     insertAndRotate(T_t+dT_dt*theta_d,forsinkelse_que)
-    T_array[f] = T_t
-    T_t = forsinkelse_que.popleft()
+    T_t=forsinkelse_que[1]
+    #T_t = forsinkelse_que.popleft()
     print(forsinkelse_que)
     
 plt.close()    

@@ -18,5 +18,7 @@ def insertAndRotate(a,array = deque):
     array.rotate()
     array.popleft()
     print(array)
-insertAndRotate(69,numbers)
+
+for x in range(0,20):
+    insertAndRotate(69,numbers)
 print(numbers)
