@@ -10,7 +10,7 @@ def insertAndRotate(a,array = deque):
 
 t_start=0#s
 t_stop=160#s
-N_sim=int((t_stop-t_start)/3) +1 #Number of time-steps
+N_sim=int((t_stop-t_start)/1) +1 #Number of time-steps
 
 t_array=np.linspace(t_start,t_stop, N_sim)
 
@@ -33,18 +33,21 @@ for x in range(0,10):
 
 print(forsinkelse_que)
 for f in f_array:
-    
+    if f>50:
+        u=0
+
     t=t_array[f]
     
     dT_dt=(1/theta_t)*((T_env - T_t) + k_h*u*(1))
     
-    #h_kp1 = T_t+dT_dt*theta_d
+    
+    a = T_t+dT_dt*theta_d
+    T_t=a
     #forsinkelse_que.append(T_t+dT_dt*theta_d)
-    T_array[f] = forsinkelse_que[9]
-    insertAndRotate(T_t+dT_dt*theta_d,forsinkelse_que)
-    T_t=forsinkelse_que[1]
-    #T_t = forsinkelse_que.popleft()
-    print(forsinkelse_que)
+    T_array[f] = a#forsinkelse_que[9]
+    #insertAndRotate(a,forsinkelse_que)
+    #T_t=forsinkelse_que[1]
+    #print(forsinkelse_que)
     
 plt.close()    
 plt.plot(T_array,'b')
