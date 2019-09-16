@@ -15,8 +15,8 @@ numbers.append(10)
 
 def insertAndRotate(a,array = deque):
     array.appendleft(a)
-    array.rotate()
-    array.popleft()
+    #array.rotate()
+    array.pop()
     print(array)
 
 for x in range(0,20):
