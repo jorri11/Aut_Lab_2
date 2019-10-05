@@ -6,7 +6,21 @@ def insertAndRotate(a,array = deque):
     array.appendleft(a)
     array.pop()
     #print(array)
- 
+def Modell(u,f):
+
+
+    
+    insertAndRotate(u,forsinkelse_que)
+    u_t=forsinkelse_que[-1]
+    
+    dT_dt=(1/theta_t)*((T_env - T_t) + k_h*u_t)
+    u_array[f] = u
+    
+    a = T_t+dT_dt*steg
+    
+    T_array[f] = T_t
+    T_t=a
+    return T_array[f]
 t_start=0#[s]
 t_stop=180#[s]
 steg = 0.05#Tidssteg
@@ -34,6 +48,8 @@ for f in f_array:
     t=t_array[f]
     if t > 80:
         u=2.5
+    Modell(u,t,T_t,f,T_array,u_array)
+    """
     insertAndRotate(u,forsinkelse_que)
     u_t=forsinkelse_que[-1]
     
@@ -44,6 +60,7 @@ for f in f_array:
     
     T_array[f] = T_t
     T_t=a
+    """
     #print(T_t)
     
 plt.close()
