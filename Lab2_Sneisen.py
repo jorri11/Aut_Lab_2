@@ -33,7 +33,7 @@ print(forsinkelse_que)
 for f in f_array:
     t=t_array[f]
     if t > 80:
-        u=0
+        u=2.5
     insertAndRotate(u,forsinkelse_que)
     u_t=forsinkelse_que[-1]
     
